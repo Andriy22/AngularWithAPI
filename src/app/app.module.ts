@@ -1,43 +1,53 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Input } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { WorkerComponent } from './worker/worker.component';
+
+import { WorkersService } from './workers.service';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { MatButtonModule, MatMenuModule, MatDatepickerModule } from '@angular/material';
+import { MatNativeDateModule, MatIconModule, MatCardModule } from '@angular/material';
+import { MatSidenavModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatTooltipModule, MatToolbarModule } from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WorkersComponent } from './workers/workers.component';
 
-import {Workers} from './workers';
-import {WorkersService} from './workers.service';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-import {HttpClientModule, HttpClient} from '@angular/common/http'
 
-import {MatButtonModule, MatMenuModule, MatCheckboxModule} from '@angular/material';
-import {MatNativeDateModule, MatTableModule, MatInputModule} from '@angular/material';
-import {MatTooltipModule, MatCardModule, MatIconModule, MatFormFieldModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
-    WorkersComponent
+    WorkerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     MatButtonModule,
     MatMenuModule,
-    MatCheckboxModule,
+    MatDatepickerModule,
     MatNativeDateModule,
-    MatTableModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
-    MatCardModule,
-    MatIconModule,
-    MatFormFieldModule
+    MatToolbarModule,
+    AppRoutingModule
   ],
-  providers: [WorkersService],
+  providers: [
+    HttpClientModule,
+    WorkersService,
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
